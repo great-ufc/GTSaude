@@ -1,5 +1,7 @@
-export default function Members() {
+const Members = () => {
     return (
-      0
+        0
     );
-  }
+}
+
+export default Members
