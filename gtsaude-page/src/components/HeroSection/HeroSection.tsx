@@ -1,5 +1,7 @@
-export default function HeroSection() {
+const HeroSection = () => {
     return (
-      0
+        0
     );
-  }
+}
+
+export default HeroSection

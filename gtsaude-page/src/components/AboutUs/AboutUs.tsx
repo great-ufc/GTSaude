@@ -1,5 +1,7 @@
-export default function AboutUs() {
-    return (
-      0
-    );
-  }
+const AboutUs = () => {
+        return (
+            0
+        );
+    }
+    
+    export default AboutUs

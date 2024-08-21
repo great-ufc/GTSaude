@@ -1,5 +1,7 @@
-export default function Articles() {
+const Articles = () => {
     return (
-      0
+        0
     );
-  }
+}
+
+export default Articles

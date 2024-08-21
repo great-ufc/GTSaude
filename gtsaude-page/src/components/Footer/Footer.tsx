@@ -1,5 +1,7 @@
-export default function Footer() {
+const Footer = () => {
     return (
-      0
+        0
     );
-  }
+}
+
+export default Footer

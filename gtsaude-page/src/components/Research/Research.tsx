@@ -1,5 +1,7 @@
-export default function Research() {
+const Research = () => {
     return (
-      0
+        0
     );
-  }
+}
+
+export default Research
