@@ -7,6 +7,10 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+      backgroundImage:{
+        'img_bg_hero': "url('../assets/HeroBanner.svg')",
+  
+      },
     extend: {
       colors: {
         'primary-blue': '#232336',
