@@ -3,9 +3,9 @@ import Image from 'next/image'
 import { ItemMenu } from '@/components/UI/Buttom'
 
 
-export function Header() {
+export default function Header() {
     return (
-        <header className='fixed flex items-center justify-center w-full h-24 bg-primary-blue z-50' id="Header">
+        <header className='fixed flex items-center justify-center w-full h-24 bg-primary-blue shadow-2xl z-50' id="Header">
             <div className='flex items-center justify-between w-full max-w-[1246px] px-4 mx-auto'>
                 <ul className='flex items-center gap-10'>
                     <li>
@@ -18,12 +18,14 @@ export function Header() {
                         <ItemMenu name='Membros' anchorId='Members' />
                     </li>
                 </ul>
-                <Image
-                    // className='h-16 w-16'
-                    className='h-16 w-16 transition-transform duration-300 ease-in-out transform hover:scale-110 active:opacity-75 cursor-pointer'
-                    src={Logo}
-                    alt="Logo"
-                />
+                <a href='/'>
+                    <Image
+                        // className='h-16 w-16'
+                        className='h-16 w-16 transition-transform duration-300 ease-in-out transform hover:scale-110 active:opacity-75 cursor-pointer'
+                        src={Logo}
+                        alt="Logo"
+                    />
+                </a>
                 <ul className='flex items-center gap-14'>
                     <li>
                         <ItemMenu name='Pesquisa' anchorId='Research' />

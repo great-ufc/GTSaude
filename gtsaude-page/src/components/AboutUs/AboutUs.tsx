@@ -3,7 +3,7 @@ import Healthy from '@/assets/Healthy.svg'
 
 import Image from 'next/image'
 
-export function AboutUs (){
+export default function AboutUs (){
     return(
         <section className="w-full  h-[120vh] max-h-[1000px] bg-primary-blue relative " id='AboutUs'>      
         
