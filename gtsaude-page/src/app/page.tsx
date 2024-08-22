@@ -5,6 +5,7 @@ import Members from "../components/Members/Members";
 import Research from "../components/Research/Research";
 import Articles from "../components/Articles/Articles";
 import Footer from "../components/Footer/Footer";
+import Accordion from "../components/UI/Accordion";
 
 export default function Home() {
   return (

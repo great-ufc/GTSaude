@@ -1,6 +1,6 @@
 import Logo from '@/assets/Logo_v2.svg'
 import Image from 'next/image'
-import { ItemMenu } from '@/components/UI/Buttom'
+import { ItemMenu } from '@/components/UI/Button'
 
 
 export default function Header() {
