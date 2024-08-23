@@ -16,6 +16,18 @@ const Accordion: React.FC = () => {
         title="Terceiro Item"
         description="Aqui está o terceiro item do acordeão, com mais detalhes e informações."
       />
+      <AccordionItem
+        title="Quarto Item"
+        description="Aqui está o terceiro item do acordeão, com mais detalhes e informações."
+      />
+      <AccordionItem
+        title="Quinto Item"
+        description="Aqui está o terceiro item do acordeão, com mais detalhes e informações."
+      />
+      <AccordionItem
+        title="Sexto Item"
+        description="Aqui está o terceiro item do acordeão, com mais detalhes e informações."
+      />
     </div>
   );
 };
