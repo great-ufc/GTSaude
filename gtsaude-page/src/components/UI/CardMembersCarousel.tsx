@@ -20,7 +20,7 @@ const membersData: Member[] = [
   },
   {
     image: "/img/members/pesquisador1.jpg",
-    name: "Anais",
+    name: "Anaís",
     description: "Designer UX/UI",
     linkedin: "https://www.linkedin.com/in/anais/",
     lattes: "http://lattes.cnpq.br/anais",
@@ -31,6 +31,13 @@ const membersData: Member[] = [
     description: "Pesquisador de Engenharia de Pesca",
     linkedin: "https://www.linkedin.com/in/darwin/",
     lattes: "http://lattes.cnpq.br/darwin",
+  },
+  {
+    image: "/img/members/gumball.svg",
+    name: "Gumball",
+    description: "Desenvolvedor Full-Stack",
+    linkedin: "https://www.linkedin.com/in/gumbal/",
+    lattes: "http://lattes.cnpq.br/Gumball",
   },
   {
     image: "/img/members/gumball.svg",

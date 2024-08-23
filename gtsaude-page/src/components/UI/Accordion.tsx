@@ -1,38 +1,23 @@
-import React from "react";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
+// components/Accordion.tsx
+import AccordionItem from './AccordionItem';
 
-export default function App() {
-    const itemClasses = {
-        title: "font-normal text-medium",
-        trigger: "px-2 py-0 data-[hover=true]:bg-default-100 rounded-lg h-14 flex items-center",
-        indicator: "text-detail-green text-medium",
-        content: "text-small px-2",
-    };
-    const defaultContent =
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+const Accordion: React.FC = () => {
+  return (
+    <div className="max-w-4xl mx-auto mt-10">
+      <AccordionItem
+        title="Primeiro Item"
+        description="Esta é a descrição do primeiro item do acordeão. Pode incluir qualquer conteúdo que desejar."
+      />
+      <AccordionItem
+        title="Segundo Item"
+        description="Esta é a descrição do segundo item. Experimente clicar para abrir e fechar."
+      />
+      <AccordionItem
+        title="Terceiro Item"
+        description="Aqui está o terceiro item do acordeão, com mais detalhes e informações."
+      />
+    </div>
+  );
+};
 
-    return (
-        <Accordion
-            itemClasses={itemClasses}
-        >
-            <AccordionItem key="1" aria-label="Accordion 1" subtitle="Press to expand" title="Accordion 1">
-                {defaultContent}
-            </AccordionItem>
-            <AccordionItem
-                key="2"
-                aria-label="Accordion 2"
-                subtitle={
-                    <span>
-                        Press to expand <strong>key 2</strong>
-                    </span>
-                }
-                title="Accordion 2"
-            >
-                {defaultContent}
-            </AccordionItem>
-            <AccordionItem key="3" aria-label="Accordion 3" subtitle="Press to expand" title="Accordion 3">
-                {defaultContent}
-            </AccordionItem>
-        </Accordion>
-    );
-}
+export default Accordion;
