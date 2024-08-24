@@ -125,7 +125,7 @@ const Articles = () => {
     };
 
     return (
-        <div className="flex flex-col items-center h-full py-8 gap-12 bg-secondary-blue">
+        <div className="flex flex-col items-center h-full py-8 gap-12 bg-secondary-blue" id="Articles">
             <div className="flex flex-col items-center gap-6 max-w-4xl py-">
                 <h1 className="text-xl md:text-4xl text-primary-white text-center font-semibold">Artigos</h1>
                 <p className="text-base md:text-xl text-primary-white text-justify">Aqui, você encontrará publicações relevantes, estudos de caso, e materiais essenciais que podem ser utilizados em nossas investigações acadêmicas e científicas. Esta seção é dedicada a compartilhar o conhecimento gerado pelo nosso grupo, bem como a disseminação de recursos que podem enriquecer o trabalho de pesquisa de nossos membros e colaboradores.</p>
