@@ -6,44 +6,44 @@ interface Member {
   image: string;
   name: string;
   description: string;
-  linkedin?: string;
+  instituicao: string;
   lattes?: string;
 }
 
 const membersData: Member[] = [
   {
+    image: "/img/members/Rossana.gif",
+    name: "Rossana Maria de Castro Andrade",
+    description: "Professora Titular do Curso de Ciências da Computação",
+    instituicao: "Universidade Federal do Ceará",
+    lattes: "http://lattes.cnpq.br/9576713124661835",
+  },
+  {
+    image: "/img/members/evilasio.gif",
+    name: "Evilasio Costa Junior",
+    description: "Professor do Curso de Engenharia da Computação",
+    instituicao: "Universidade Federal do Ceará - Campus Sobral",
+    lattes: "http://lattes.cnpq.br/1879682483814917",
+  },
+  {
+    image: "/img/members/ismayle.gif",
+    name: "Ismayle de Sousa Santos",
+    description: "Professor do Curso de Ciências da Computação",
+    instituicao: "Universidade Estadual do Ceará",
+    lattes: "http://lattes.cnpq.br/4278565937358466",
+  },
+  {
     image: "/img/members/pesquisador1.jpg",
-    name: "Gumball",
-    description: "Desenvolvedor Full-Stack",
-    linkedin: "https://www.linkedin.com/in/gumbal/",
+    name: "Evilasio Costa Junior",
+    description: "Professor do Curso de Engenharia da Computação",
+    instituicao: "UFC - Sobral",
     lattes: "http://lattes.cnpq.br/Gumball",
-  },
-  {
-    image: "/img/members/pesquisador1.jpg",
-    name: "Anaís",
-    description: "Designer UX/UI",
-    linkedin: "https://www.linkedin.com/in/anais/",
-    lattes: "http://lattes.cnpq.br/anais",
-  },
-  {
-    image: "/img/members/pesquisador1.jpg",
-    name: "Darwin",
-    description: "Pesquisador de Engenharia de Pesca",
-    linkedin: "https://www.linkedin.com/in/darwin/",
-    lattes: "http://lattes.cnpq.br/darwin",
   },
   {
     image: "/img/members/gumball.svg",
     name: "Gumball",
     description: "Desenvolvedor Full-Stack",
-    linkedin: "https://www.linkedin.com/in/gumbal/",
-    lattes: "http://lattes.cnpq.br/Gumball",
-  },
-  {
-    image: "/img/members/gumball.svg",
-    name: "Gumball",
-    description: "Desenvolvedor Full-Stack",
-    linkedin: "https://www.linkedin.com/in/gumbal/",
+    instituicao: "UFC - Sobral",
     lattes: "http://lattes.cnpq.br/Gumball",
   },
 ];
@@ -79,7 +79,6 @@ const CardMembersCarousel: React.FC = () => {
                 image={member.image}
                 name={member.name}
                 description={member.description}
-                linkedin={member.linkedin}
                 lattes={member.lattes}
               />
             </div>

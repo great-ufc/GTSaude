@@ -4,9 +4,10 @@ import { useState } from 'react';
 type AccordionItemProps = {
   title: string;
   description: string;
+  currentstatus:string;
 };
 
-const AccordionItem: React.FC<AccordionItemProps> = ({ title, description }) => {
+const AccordionItem: React.FC<AccordionItemProps> = ({ title, description,currentstatus }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
@@ -36,6 +37,13 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, description }) => 
         }`}
       >
         <p className="py-4 text-gray-100">{description}</p>
+      </div>
+      <div
+        className={`px-6 overflow-hidden transition-max-height duration-300 ease-in-out ${
+          isOpen ? 'max-h-screen' : 'max-h-0'
+        }`}
+      >
+        <p className="py-4 text-gray-100">Status: {currentstatus}</p>
       </div>
     </div>
   );
