@@ -32,7 +32,7 @@ export default function AboutUs (){
                         </div>    
                     </h1> 
                        
-                    <h4 className='text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+                    <h4 className='text-sm'>O GT Saúde é um grupo de trabalho associado ao Grupo de Redes de Computadores, Engenharia de Software e Sistemas (GREat) da Universidade Federal do Ceará (UFC). Esse laboratório está associado ao Departamento de Computação e aos programas de Mestrado e Doutorado em Ciências da Computação e Programa de Pós-Graduação em Engenharia de TeleInformática da UFC. O GT Saúde atua nas área de Saúde Digital, Saúde Inteligente (Smart Health), e Internet das Coisas Médicas (Internet of Health Things - IoHT). Os pesquisadores do GREat já atuam nessas áreas de pesquisa desde 2013 e o GT Saúde foi iniciado em 2018 para integrar todos os pesquisadores do GREat que atuam em pesquisas nas áreas supracitadas.</h4>
 
                 </div>
             </div>
@@ -45,7 +45,7 @@ export default function AboutUs (){
                             <h1 className='text-transparent'> . </h1>
                         </div>    
                     </h1> 
-                    <h4 className='text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+                    <h4 className='text-sm'>O objetivo do GT de Saúde é integrar diferentes pesquisadores nas áreas de computação e saúde das UFC e de outras Instituições de Ensino Superior para desenvolver pesquisas e projetos nas áreas de tem como foco desenvolver pesquisas e projetos na área de Saúde Digital, Saúde Inteligente (Smart Health), e Internet das Coisas Médicas (Internet of Health Things - IoHT). O GT saúde conta com a colaboração de Professores, Estudantes de Pós-Graduação e Graduação e Profissionais de Saúde parceiros</h4>
 
                 </div>
 
