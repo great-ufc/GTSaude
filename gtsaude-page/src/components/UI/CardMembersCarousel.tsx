@@ -8,6 +8,7 @@ interface Member {
   description: string;
   instituicao: string;
   lattes?: string;
+  linkedin?: string;
 }
 
 const membersData: Member[] = [
@@ -17,6 +18,7 @@ const membersData: Member[] = [
     description: "Professora Titular do Curso de Ciências da Computação",
     instituicao: "Universidade Federal do Ceará",
     lattes: "http://lattes.cnpq.br/9576713124661835",
+    linkedin:"#",
   },
   {
     image: "/img/members/evilasio.gif",
@@ -24,6 +26,7 @@ const membersData: Member[] = [
     description: "Professor do Curso de Engenharia da Computação",
     instituicao: "Universidade Federal do Ceará - Campus Sobral",
     lattes: "http://lattes.cnpq.br/1879682483814917",
+    linkedin:"#",
   },
   {
     image: "/img/members/ismayle.gif",
@@ -31,20 +34,31 @@ const membersData: Member[] = [
     description: "Professor do Curso de Ciências da Computação",
     instituicao: "Universidade Estadual do Ceará",
     lattes: "http://lattes.cnpq.br/4278565937358466",
+    linkedin:"#",
   },
   {
-    image: "/img/members/pesquisador1.jpg",
-    name: "Evilasio Costa Junior",
-    description: "Professor do Curso de Engenharia da Computação",
+    image: "/img/members/miguel.jfif",
+    name: "Miguel Edson Ramos Lima",
+    description: "Graduando do Curso de Engenharia da Computação",
     instituicao: "UFC - Sobral",
-    lattes: "http://lattes.cnpq.br/Gumball",
+    lattes: "http://lattes.cnpq.br/5451246979196909",
+    linkedin:"https://www.linkedin.com/in/miguel-edson-a53a99283/"
   },
   {
-    image: "/img/members/gumball.svg",
-    name: "Gumball",
-    description: "Desenvolvedor Full-Stack",
+    image: "/img/members/lara.jfif",
+    name: "Lara Vitória Lima Braga",
+    description: "Graduanda do Curso de Engenharia da Computação",
     instituicao: "UFC - Sobral",
     lattes: "http://lattes.cnpq.br/Gumball",
+    linkedin:"https://www.linkedin.com/in/lara-lima-brg/",
+  },
+  {
+    image: "/img/members/manoel.jpeg",
+    name: "Manoel Farias de Oliveira",
+    description: "Graduanda do Curso de Engenharia da Computação",
+    instituicao: "UFC - Sobral",
+    lattes: "http://lattes.cnpq.br/3312298032422676",
+    linkedin:"https://www.linkedin.com/in/manoel-farias-de-oliveira-716644217/",
   },
 ];
 
@@ -80,6 +94,7 @@ const CardMembersCarousel: React.FC = () => {
                 name={member.name}
                 description={member.description}
                 lattes={member.lattes}
+                linkedin={member.linkedin}
               />
             </div>
           ))}
