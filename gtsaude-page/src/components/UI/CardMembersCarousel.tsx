@@ -1,68 +1,47 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MemberCard from "./MemberCard";
+import Papa from "papaparse";
+import Image from "next/image";
 
 interface Member {
-  image: string;
   name: string;
+  Nome?: string;
   description: string;
-  instituicao: string;
+  Descrição?: string;
+  Foto?: string;
+  Lattes?: string;
+  Linkedin?: string;
+  image: string;
+  instituicao?: string;
   lattes?: string;
   linkedin?: string;
 }
 
-const membersData: Member[] = [
-  {
-    image: "/img/members/Rossana.gif",
-    name: "Rossana Maria de Castro Andrade",
-    description: "Professora Titular do Curso de Ciências da Computação",
-    instituicao: "Universidade Federal do Ceará",
-    lattes: "http://lattes.cnpq.br/9576713124661835",
-    linkedin:"#",
-  },
-  {
-    image: "/img/members/evilasio.gif",
-    name: "Evilasio Costa Junior",
-    description: "Professor do Curso de Engenharia da Computação",
-    instituicao: "Universidade Federal do Ceará - Campus Sobral",
-    lattes: "http://lattes.cnpq.br/1879682483814917",
-    linkedin:"#",
-  },
-  {
-    image: "/img/members/ismayle.gif",
-    name: "Ismayle de Sousa Santos",
-    description: "Professor do Curso de Ciências da Computação",
-    instituicao: "Universidade Estadual do Ceará",
-    lattes: "http://lattes.cnpq.br/4278565937358466",
-    linkedin:"#",
-  },
-  {
-    image: "/img/members/miguel.jfif",
-    name: "Miguel Edson Ramos Lima",
-    description: "Graduando do Curso de Engenharia da Computação",
-    instituicao: "UFC - Sobral",
-    lattes: "http://lattes.cnpq.br/5451246979196909",
-    linkedin:"https://www.linkedin.com/in/miguel-edson-a53a99283/"
-  },
-  {
-    image: "/img/members/lara.jfif",
-    name: "Lara Vitória Lima Braga",
-    description: "Graduanda do Curso de Engenharia da Computação",
-    instituicao: "UFC - Sobral",
-    lattes: "http://lattes.cnpq.br/Gumball",
-    linkedin:"https://www.linkedin.com/in/lara-lima-brg/",
-  },
-  {
-    image: "/img/members/manoel.jpeg",
-    name: "Manoel Farias de Oliveira",
-    description: "Graduanda do Curso de Engenharia da Computação",
-    instituicao: "UFC - Sobral",
-    lattes: "http://lattes.cnpq.br/3312298032422676",
-    linkedin:"https://www.linkedin.com/in/manoel-farias-de-oliveira-716644217/",
-  },
-];
+const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhKX1VJ83ns6ujBStRVJvLSqallRt2jK9vsfXICRZOJMQxNzIvb4EA3rOG9kGpkhAh8GPogIuVUNj3/pub?gid=0&single=true&output=csv";
 
 const CardMembersCarousel: React.FC = () => {
+  const [membersData, setMembersData] = useState<Member[]>([]); // Renomeado para membersData
+
+  useEffect(() => {
+    console.log("Fetch data");
+
+    fetch(url)
+      .then((response) => response.text())
+      .then((data) => {
+        const parsedData = Papa.parse<Member>(data, { header: true });
+        const membersData: Member[] = parsedData.data.map(item => ({
+          name: item.Nome || "", // Altere 'Nome' para o nome correto da coluna na sua planilha
+          description: item.Descrição || "", // Altere conforme necessário
+          image: item.Foto || "", // Assumindo que a imagem está na coluna 'image'
+          lattes: item.Lattes || "", // Altere conforme necessário
+          linkedin: item.Linkedin || "", // Altere conforme necessário
+        }));
+        setMembersData(membersData); // Atualizando o estado com os dados mapeados
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
@@ -79,9 +58,11 @@ const CardMembersCarousel: React.FC = () => {
 
   return (
     <div className="relative max-w-5xl mx-auto">
+      
+
       <div className="relative overflow-hidden">
         <div
-          className="flex gap-1 transition-transform duration-500 ease-in-out"
+          className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
         >
           {membersData.map((member, index) => (
@@ -100,13 +81,13 @@ const CardMembersCarousel: React.FC = () => {
           ))}
         </div>
         <button
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary-blue p-2 rounded-full"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary-blue p-2 rounded-full text-xs px-3"
           onClick={prevSlide}
         >
           &#10094;
         </button>
         <button
-          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary-blue p-2 rounded-full"
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary-blue p-2 rounded-full text-xs px-3"
           onClick={nextSlide}
         >
           &#10095;
