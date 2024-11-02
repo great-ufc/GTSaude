@@ -1,121 +1,47 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ArticleCard from "../ArticleCard/ArticleCard";
+import Papa from "papaparse";
+
+interface ArticlesColluns {
+    Ano?: string | number;
+    Nome?: string;
+    Tag1?: string;
+    Tag2?: string;
+    Tag3?: string;
+    Link?: string;
+}
 
 const Articles = () => {
-    const articles = [
-        {
-            title: 'Learning Next.js',
-            description: 'A guide to building modern web applications with Next.js.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: [
-                { name: 'Next.js', color: '#0070f3' },
-                { name: 'React', color: '#61dafb' },
-                { name: 'Web Development', color: '#4caf50' },
-            ],
-            articleUrl: '/articles/learning-nextjs',
-        },
-        {
-            title: 'Learning Next.js',
-            description: 'A guide to building modern web applications with Next.js.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: [
-                { name: 'Next.js', color: '#0070f3' },
-                { name: 'React', color: '#61dafb' },
-                { name: 'Web Development', color: '#4caf50' },
-            ],
-            articleUrl: '/articles/learning-nextjs',
-        },
-        {
-            title: 'Learning Next.js',
-            description: 'A guide to building modern web applications with Next.js.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: [
-                { name: 'Next.js', color: '#0070f3' },
-                { name: 'React', color: '#61dafb' },
-                { name: 'Web Development', color: '#4caf50' },
-            ],
-            articleUrl: '/articles/learning-nextjs',
-        },
-        {
-            title: 'Learning Next.js',
-            description: 'A guide to building modern web applications with Next.js.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: [
-                { name: 'Next.js', color: '#0070f3' },
-                { name: 'React', color: '#61dafb' },
-                { name: 'Web Development', color: '#4caf50' },
-            ],
-            articleUrl: '/articles/learning-nextjs',
-        },
-        {
-            title: 'Learning Next.js',
-            description: 'A guide to building modern web applications with Next.js.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: [
-                { name: 'Next.js', color: '#0070f3' },
-                { name: 'React', color: '#61dafb' },
-                { name: 'Web Development', color: '#4caf50' },
-                { name: 'Vivi', color: '#4caf50' },
-            ],
-            articleUrl: '/articles/learning-nextjs',
-        },
-        {
-            title: 'Learning Next.js',
-            description: 'A guide to building modern web applications with Next.js.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: [
-                { name: 'Next.js', color: '#0070f3' },
-                { name: 'React', color: '#61dafb' },
-                { name: 'Web Development', color: '#4caf50' },
-                { name: 'Vivi', color: '#4caf50' },
-            ],
-            articleUrl: '/articles/learning-nextjs',
-        },
-        {
-            title: 'Learning Next.js',
-            description: 'A guide to building modern web applications with Next.js.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: [
-                { name: 'Next.js', color: '#0070f3' },
-                { name: 'React', color: '#61dafb' },
-                { name: 'Web Development', color: '#4caf50' },
-                { name: 'Vivi', color: '#4caf50' },
-            ],
-            articleUrl: '/articles/learning-nextjs',
-        },
-        {
-            title: 'Learning Next.js',
-            description: 'A guide to building modern web applications with Next.js.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: [
-                { name: 'Next.js', color: '#0070f3' },
-                { name: 'React', color: '#61dafb' },
-                { name: 'Web Development', color: '#4caf50' },
-                { name: 'Vivi', color: '#4caf50' },
-            ],
-            articleUrl: '/articles/learning-nextjs',
-        },
-        {
-            title: 'Learning Next.js',
-            description: 'A guide to building modern web applications with Next.js.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: [
-                { name: 'Next.js', color: '#0070f3' },
-                { name: 'React', color: '#61dafb' },
-                { name: 'Web Development', color: '#4caf50' },
-                { name: 'Vivi', color: '#4caf50' },
-            ],
-            articleUrl: '/articles/learning-nextjs',
-        },
-        //Caso necessário, copie, cole e modifique os moldes acima e adicione novos artigos.
-    ];
+    const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhKX1VJ83ns6ujBStRVJvLSqallRt2jK9vsfXICRZOJMQxNzIvb4EA3rOG9kGpkhAh8GPogIuVUNj3/pub?gid=168103023&single=true&output=csv";
+    
+    const [articlesData, setArticlesData] = useState<ArticlesColluns[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const articlesPerPage = 6;
 
-    const totalPages = Math.ceil(articles.length / articlesPerPage);
+    useEffect(() => {
+        console.log("Fetch data");
+    
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const parsedData = Papa.parse<ArticlesColluns>(data, { header: true });
+            const articlesData: ArticlesColluns[] = parsedData.data.map(item => ({
+              Ano: item.Ano || "",
+              Nome: item.Nome || "",
+              Tag1: item.Tag1 || "",
+              Tag2: item.Tag2 || "",
+              Tag3: item.Tag3 || "",
+              Link: item.Link || "",
+            }));
+            setArticlesData(articlesData);
+          })
+          .catch((err) => console.log(err));
+      }, []); 
 
-    const currentArticles = articles.slice(
+    const totalPages = Math.ceil(articlesData.length / articlesPerPage);
+
+    const currentArticles = articlesData.slice(
         (currentPage - 1) * articlesPerPage,
         currentPage * articlesPerPage
     );
@@ -135,11 +61,11 @@ const Articles = () => {
                     {currentArticles.map((article, index) => (
                         <ArticleCard
                             key={index}
-                            title={article.title}
-                            description={article.description}
-                            imageUrl={article.imageUrl}
-                            tags={article.tags}
-                            articleUrl={article.articleUrl}
+                            title={article.Nome || "Título padrão"}
+                            tag1={article.Tag1}
+                            tag2={article.Tag2}
+                            tag3={article.Tag3}
+                            articleUrl={article.Link || "#"}
                         />
                     ))}
                 </div>

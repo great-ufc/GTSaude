@@ -2,21 +2,15 @@
 import { useState, useEffect } from "react";
 import MemberCard from "./MemberCard";
 import Papa from "papaparse";
-import Image from "next/image";
 
 interface Member {
-  name: string;
   Nome?: string;
-  description: string;
   Descrição?: string;
   Foto?: string;
   Lattes?: string;
   Linkedin?: string;
-  image: string;
   instituicao?: string;
-  lattes?: string;
-  linkedin?: string;
-}
+ }
 
 const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhKX1VJ83ns6ujBStRVJvLSqallRt2jK9vsfXICRZOJMQxNzIvb4EA3rOG9kGpkhAh8GPogIuVUNj3/pub?gid=0&single=true&output=csv";
 
@@ -31,13 +25,13 @@ const CardMembersCarousel: React.FC = () => {
       .then((data) => {
         const parsedData = Papa.parse<Member>(data, { header: true });
         const membersData: Member[] = parsedData.data.map(item => ({
-          name: item.Nome || "", // Altere 'Nome' para o nome correto da coluna na sua planilha
-          description: item.Descrição || "", // Altere conforme necessário
-          image: item.Foto || "", // Assumindo que a imagem está na coluna 'image'
-          lattes: item.Lattes || "", // Altere conforme necessário
-          linkedin: item.Linkedin || "", // Altere conforme necessário
+          Nome: item.Nome || "", 
+          Descrição: item.Descrição || "", 
+          Foto: item.Foto || "", 
+          Lattes: item.Lattes || "", 
+          Linkedin: item.Linkedin || "",
         }));
-        setMembersData(membersData); // Atualizando o estado com os dados mapeados
+        setMembersData(membersData); 
       })
       .catch((err) => console.log(err));
   }, []);
@@ -71,12 +65,13 @@ const CardMembersCarousel: React.FC = () => {
               className="min-w-[calc(100%/3)] flex justify-center"
             >
               <MemberCard
-                image={member.image}
-                name={member.name}
-                description={member.description}
-                lattes={member.lattes}
-                linkedin={member.linkedin}
+                image={member.Foto || "#"}
+                name={member.Nome || ""}
+                description={member.Descrição || ""}
+                lattes={member.Lattes || "#"}
+                linkedin={member.Linkedin || "#"}
               />
+              
             </div>
           ))}
         </div>

@@ -14,7 +14,7 @@ interface MemberCardProps {
 
 const MemberCard: React.FC<MemberCardProps> = ({ image, name, description, linkedin, lattes }) => {
   return (
-    <Card className="pb-4 flex flex-col items-center justify-between bg-primary-blue rounded-xl w-64 h-96">
+    <Card className="pb-4 flex flex-col items-center justify-between bg-primary-blue rounded-xl md:w-64 w-42 md:h-96 h-70">
       <CardBody className="flex justify-center items-center">
         <div className="w-full h-44 relative">
           <Image
@@ -36,7 +36,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ image, name, description, linke
             <Image 
             src={Lattes}
             alt="Link para o Lattes" 
-            className="w-11 h-11 object-cover hover:opacity-50 transition-transform duration-500 ease-in-out"
+            className="md:w-11 md:h-11 w-9 h-9 object-cover hover:opacity-50 transition-transform duration-500 ease-in-out"
             />
           </a>
         )}
@@ -45,7 +45,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ image, name, description, linke
             <Image 
             src={Linkedin}
             alt="Link para o Linkedin" 
-            className="w-11 h-11 object-cover hover:opacity-50 transition-transform duration-500 ease-in-out"
+            className="md:w-11 md:h-11 w-9 h-9  object-cover hover:opacity-50 transition-transform duration-500 ease-in-out"
             />
           </a>
         )}
