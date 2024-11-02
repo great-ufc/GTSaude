@@ -1,54 +1,41 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MemberCard from "./MemberCard";
+import Papa from "papaparse";
 
 interface Member {
-  image: string;
-  name: string;
-  description: string;
-  instituicao: string;
-  lattes?: string;
-}
+  Nome?: string;
+  Descrição?: string;
+  Foto?: string;
+  Lattes?: string;
+  Linkedin?: string;
+  instituicao?: string;
+ }
 
-const membersData: Member[] = [
-  {
-    image: "/img/members/Rossana.gif",
-    name: "Rossana Maria de Castro Andrade",
-    description: "Professora Titular do Curso de Ciências da Computação",
-    instituicao: "Universidade Federal do Ceará",
-    lattes: "http://lattes.cnpq.br/9576713124661835",
-  },
-  {
-    image: "/img/members/evilasio.gif",
-    name: "Evilasio Costa Junior",
-    description: "Professor do Curso de Engenharia da Computação",
-    instituicao: "Universidade Federal do Ceará - Campus Sobral",
-    lattes: "http://lattes.cnpq.br/1879682483814917",
-  },
-  {
-    image: "/img/members/ismayle.gif",
-    name: "Ismayle de Sousa Santos",
-    description: "Professor do Curso de Ciências da Computação",
-    instituicao: "Universidade Estadual do Ceará",
-    lattes: "http://lattes.cnpq.br/4278565937358466",
-  },
-  {
-    image: "/img/members/pesquisador1.jpg",
-    name: "Evilasio Costa Junior",
-    description: "Professor do Curso de Engenharia da Computação",
-    instituicao: "UFC - Sobral",
-    lattes: "http://lattes.cnpq.br/Gumball",
-  },
-  {
-    image: "/img/members/gumball.svg",
-    name: "Gumball",
-    description: "Desenvolvedor Full-Stack",
-    instituicao: "UFC - Sobral",
-    lattes: "http://lattes.cnpq.br/Gumball",
-  },
-];
+const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhKX1VJ83ns6ujBStRVJvLSqallRt2jK9vsfXICRZOJMQxNzIvb4EA3rOG9kGpkhAh8GPogIuVUNj3/pub?gid=0&single=true&output=csv";
 
 const CardMembersCarousel: React.FC = () => {
+  const [membersData, setMembersData] = useState<Member[]>([]); // Renomeado para membersData
+
+  useEffect(() => {
+    console.log("Fetch data");
+
+    fetch(url)
+      .then((response) => response.text())
+      .then((data) => {
+        const parsedData = Papa.parse<Member>(data, { header: true });
+        const membersData: Member[] = parsedData.data.map(item => ({
+          Nome: item.Nome || "", 
+          Descrição: item.Descrição || "", 
+          Foto: item.Foto || "", 
+          Lattes: item.Lattes || "", 
+          Linkedin: item.Linkedin || "",
+        }));
+        setMembersData(membersData); 
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
@@ -65,9 +52,11 @@ const CardMembersCarousel: React.FC = () => {
 
   return (
     <div className="relative max-w-5xl mx-auto">
+      
+
       <div className="relative overflow-hidden">
         <div
-          className="flex gap-1 transition-transform duration-500 ease-in-out"
+          className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
         >
           {membersData.map((member, index) => (
@@ -76,22 +65,24 @@ const CardMembersCarousel: React.FC = () => {
               className="min-w-[calc(100%/3)] flex justify-center"
             >
               <MemberCard
-                image={member.image}
-                name={member.name}
-                description={member.description}
-                lattes={member.lattes}
+                image={member.Foto || "#"}
+                name={member.Nome || ""}
+                description={member.Descrição || ""}
+                lattes={member.Lattes || "#"}
+                linkedin={member.Linkedin || "#"}
               />
+              
             </div>
           ))}
         </div>
         <button
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary-blue p-2 rounded-full"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary-blue p-2 rounded-full text-xs px-3"
           onClick={prevSlide}
         >
           &#10094;
         </button>
         <button
-          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary-blue p-2 rounded-full"
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary-blue p-2 rounded-full text-xs px-3"
           onClick={nextSlide}
         >
           &#10095;

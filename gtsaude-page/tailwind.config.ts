@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
       backgroundImage:{
         'img_bg_hero': "url('../assets/HeroBanner.svg')",
+        'img_bg_hero_mobile': "url('../assets/HeroBannerMobile.svg')",
   
       },
     extend: {
