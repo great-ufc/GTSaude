@@ -36,7 +36,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, description,curren
           isOpen ? 'max-h-screen' : 'max-h-0'
         }`}
       >
-        <p className="py-4 text-gray-100">{description}</p>
+        <p className="py-4 text-gray-100 text-justify">{description}</p>
       </div>
       <div
         className={`px-6 overflow-hidden transition-max-height duration-300 ease-in-out ${

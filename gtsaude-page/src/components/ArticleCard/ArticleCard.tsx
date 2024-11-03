@@ -5,9 +5,6 @@ import Tag from '../UI/Tag';
 
 type ArticleCardProps = {
   title: string;
-  // description: string;
-  // imageUrl: string;
-  // tags: { name: string; color: string }[];
   tag1?: string,
   tag2?: string,
   tag3?: string,
