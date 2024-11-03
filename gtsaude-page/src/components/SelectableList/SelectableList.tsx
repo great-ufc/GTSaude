@@ -4,9 +4,10 @@ import { useState, useRef } from 'react';
 
 type SelectableListProps = {
   items: string[];
+  onSelect: (item: string) => void;
 };
 
-const SelectableList: React.FC<SelectableListProps> = ({ items }) => {
+const SelectableList: React.FC<SelectableListProps> = ({ items, onSelect }) => {
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -15,6 +16,7 @@ const SelectableList: React.FC<SelectableListProps> = ({ items }) => {
 
   const handleClick = (index: number) => {
     setSelectedItem(index);
+    onSelect(items[index]);
   };
 
   const startDragging = (e: React.MouseEvent) => {
