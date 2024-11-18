@@ -3,7 +3,9 @@ import Image from "next/image";
 import Lattes from '@/assets/lattes2.png'
 import Linkedin from '@/assets/linkedin.png'
 
+//Aqui é onde o card é montado, com as informações da planilha para cada integrante.
 
+//Variáveis fornecidas para montagem do card
 interface MemberCardProps {
   image: string;
   name: string;
@@ -14,8 +16,10 @@ interface MemberCardProps {
 
 const MemberCard: React.FC<MemberCardProps> = ({ image, name, description, linkedin, lattes }) => {
   return (
-    <Card className="pb-4 flex flex-col items-center justify-between bg-primary-blue rounded-xl md:w-64 w-42 md:h-96 h-70">
+
+    <Card className="pb-4 flex flex-col items-center justify-between bg-primary-blue rounded-xl md:w-64 w-56 md:h-96 h-70">
       <CardBody className="flex justify-center items-center">
+        {/* Imagem do membro */}
         <div className="w-full h-44 relative">
           <Image
             alt={name}
@@ -26,11 +30,16 @@ const MemberCard: React.FC<MemberCardProps> = ({ image, name, description, linke
           />
         </div>
       </CardBody>
-      <CardHeader className="px-4 flex-col items-center text-center">
+
+      <CardHeader className="px-4 py-2 flex-col items-center text-center">
+        {/* Nome do membro */}
         <h4 className="font-bold text-base pb-4">{name}</h4>
+        {/* Descrição do membro */}
         <p className="text-sm text-gray-500">{description}</p>
       </CardHeader>
+
       <CardFooter className="flex justify-center space-x-6">
+        {/* Links do Lattes e Linkedin do membro */}
         {lattes && (
           <a href={lattes} target="_blank" rel="noopener noreferrer">
             <Image 

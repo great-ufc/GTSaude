@@ -1,6 +1,8 @@
 "use client";
 import { useState } from 'react';
 
+//Aqui é onde o Accordeon é montado
+
 type AccordionItemProps = {
   title: string;
   description: string;
@@ -16,11 +18,14 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, description,curren
 
   return (
     <div>
+       {/* Navegação */}
       <button
         className="w-full text-left py-4 px-6 focus:outline-none flex justify-between items-center"
         onClick={toggleAccordion}
       >
+         {/* Título da pesquisa */}
         <span className="text-2xl font-semibold">{title}</span>
+        {/* Seta de navegação */}
         <svg
           className={`w-6 h-6 transform transition-transform duration-300 ${isOpen ? 'rotate-270 text-detail-green' : '-rotate-90'}`}
           fill="none"
@@ -31,6 +36,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, description,curren
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
         </svg>
       </button>
+      {/* Descrição e Status da pesquisa */}
       <div
         className={`px-6 overflow-hidden transition-max-height duration-300 ease-in-out ${
           isOpen ? 'max-h-screen' : 'max-h-0'

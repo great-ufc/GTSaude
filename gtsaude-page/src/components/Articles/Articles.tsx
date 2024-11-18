@@ -3,6 +3,12 @@ import { useState, useEffect } from "react";
 import ArticleCard from "../ArticleCard/ArticleCard";
 import Papa from "papaparse";
 
+//Sessão dedicada a expor os artigos escritos por integrantes do grupo
+
+//Link da Planilha
+const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhKX1VJ83ns6ujBStRVJvLSqallRt2jK9vsfXICRZOJMQxNzIvb4EA3rOG9kGpkhAh8GPogIuVUNj3/pub?gid=168103023&single=true&output=csv";
+
+//Variáveis de acordo com as colunas da planilha
 interface ArticlesColluns {
     Ano?: string | number;
     Nome?: string;
@@ -13,12 +19,12 @@ interface ArticlesColluns {
 }
 
 const Articles = () => {
-    const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhKX1VJ83ns6ujBStRVJvLSqallRt2jK9vsfXICRZOJMQxNzIvb4EA3rOG9kGpkhAh8GPogIuVUNj3/pub?gid=168103023&single=true&output=csv";
     
     const [articlesData, setArticlesData] = useState<ArticlesColluns[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const articlesPerPage = 6;
 
+    //Fetch Data
     useEffect(() => {
         console.log("Fetch data");
     
@@ -39,6 +45,7 @@ const Articles = () => {
           .catch((err) => console.log(err));
       }, []); 
 
+    // Navegação
     const totalPages = Math.ceil(articlesData.length / articlesPerPage);
 
     const currentArticles = articlesData.slice(
@@ -51,13 +58,17 @@ const Articles = () => {
     };
 
     return (
-        <div className="flex flex-col items-center h-full py-8 gap-12 bg-secondary-blue" id="Articles">
+
+        <div className="flex flex-col items-center mx-auto h-full py-8 gap-12 bg-secondary-blue" id="Articles">
             <div className="flex flex-col items-center gap-6 max-w-4xl py-">
+                 {/* Título da Sessão */}
                 <h1 className="text-xl md:text-4xl text-primary-white text-center font-semibold">Artigos</h1>
+                 {/* Descrição da Sessão */}
                 <p className="text-base md:text-xl text-primary-white text-justify">Aqui, você encontrará publicações relevantes, estudos de caso, e materiais essenciais que podem ser utilizados em nossas investigações acadêmicas e científicas. Esta seção é dedicada a compartilhar o conhecimento gerado pelo nosso grupo, bem como a disseminação de recursos que podem enriquecer o trabalho de pesquisa de nossos membros e colaboradores.</p>
             </div>
             <div className="container mx-auto p-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                     {/* Montagem dos Cards de acordo com os dados da planilha */}
                     {currentArticles.map((article, index) => (
                         <ArticleCard
                             key={index}
@@ -69,6 +80,7 @@ const Articles = () => {
                         />
                     ))}
                 </div>
+                 {/* Navegação paginada */}
                 <div className="flex justify-center mt-6">
                     {Array.from({ length: totalPages }, (_, index) => (
                         <button

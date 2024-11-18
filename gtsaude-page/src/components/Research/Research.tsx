@@ -4,6 +4,12 @@ import Papa from "papaparse";
 import SelectableList from "../SelectableList/SelectableList";
 import Accordion from "../UI/Accordion";
 
+//Sessão dedicada a apresentar as pesquisas do grupo, realizadas e em andamento.
+
+//Link da Planilha
+const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhKX1VJ83ns6ujBStRVJvLSqallRt2jK9vsfXICRZOJMQxNzIvb4EA3rOG9kGpkhAh8GPogIuVUNj3/pub?gid=737971149&output=csv";
+
+//Variáveis de acordo com as colunas da planilha
 interface ResearchData {
   Ano: string;
   Titulo: string;
@@ -12,7 +18,6 @@ interface ResearchData {
 }
 
 const Research = () => {
-    const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhKX1VJ83ns6ujBStRVJvLSqallRt2jK9vsfXICRZOJMQxNzIvb4EA3rOG9kGpkhAh8GPogIuVUNj3/pub?gid=737971149&output=csv";
     
     const [researchData, setResearchData] = useState<ResearchData[]>([]);
     const [years, setYears] = useState<string[]>([]);
@@ -56,14 +61,19 @@ const Research = () => {
         : researchData;
 
     return (
+
         <div className="flex flex-col items-center h-full py-8 gap-12 bg-primary-blue" id="Research">
             <div className="flex flex-col items-center gap-6 max-w-4xl py-4">
+                {/* Título da Sessão */}
                 <h1 className="text-xl md:text-4xl text-primary-white text-center font-semibold">Projetos em Andamento</h1>
+                {/* Descrição da Sessão */}
                 <p className="text-base md:text-xl text-primary-white text-justify">Esta seção oferece aos visitantes uma oportunidade de acompanhar os avanços mais recentes e inovadores em diversas áreas do conhecimento...</p>
             </div>
             <div>
+                 {/* Navegação por ano */}
                 <SelectableList items={years} onSelect={setSelectedYear} />
             </div>
+             {/* Accordion com as pesquisas */}
             <div className="w-full">
                 {loading ? (
                     // Skeleton Loader

@@ -1,4 +1,10 @@
-//Em caso de mudar a imagem desta sessão, ela é chamada dentro do file "tailwind.config.js"
+//Sessão dedicada a informar sobre eventos no qual o grupo esta participando
+
+//Em caso de mudar a imagem desta sessão, ela é chamada dentro do file "tailwind.config.js". 
+
+// O nome da variavel a ser mudada é "bg-img_bg_hero" para a versão desktop 
+// O nome da variavel a ser mudada é "bg-img_bg_hero_mobile" para a versão Mobile 
+
 
 export default function HeroSection (){
   return(

@@ -1,5 +1,7 @@
 import AccordionItem from './AccordionItem';
 
+//Aqui é onde o Accordion das pesquisas é montado.
+
 type AccordionProps = {
   items: {
     Titulo: string;
