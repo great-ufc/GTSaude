@@ -17,7 +17,7 @@ interface MemberCardProps {
 const MemberCard: React.FC<MemberCardProps> = ({ image, name, description, linkedin, lattes }) => {
   return (
 
-    <Card className="pb-4 flex flex-col items-center justify-between bg-primary-blue rounded-xl md:w-64 w-56 md:h-96 h-70">
+    <Card className="pb-4 flex flex-col items-center justify-between bg-primary-blue rounded-xl md:w-64 w-56 md:h-104 h-70">
       <CardBody className="flex justify-center items-center">
         {/* Imagem do membro */}
         <div className="w-full h-44 relative">

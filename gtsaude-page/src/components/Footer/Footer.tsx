@@ -1,12 +1,12 @@
 import Logo_Extd from '@/assets/Logo_extendida.svg'
-import { FaFacebookSquare, FaInstagramSquare, FaLinkedin} from "react-icons/fa";
-import { ImMail } from "react-icons/im";
+// import { FaFacebookSquare, FaInstagramSquare, FaLinkedin} from "react-icons/fa";
+// import { ImMail } from "react-icons/im";
 
 import Image from 'next/image'
 
 export default function AboutUs (){
     return(
-        <section className="w-full md:h-[70vh] h-[52vh] max-h-[1200px] bg-primary-blue relative " id='AboutUs'>      
+        <section className="w-full md:h-[50vh] h-[32vh] max-h-[1200px] bg-primary-blue relative " id='AboutUs'>      
         
         <div className="h-full flex flex-col items-center justify-center max-w-[1246px] mx-auto my-auto py-10 ">
 
@@ -50,7 +50,7 @@ export default function AboutUs (){
                     </div> 
             </div> 
 
-            <div className='flex md:pt-32 pt-16 md:text-6xl text-3xl gap-10 text-detail-orange'>
+            {/* <div className='flex md:pt-32 pt-16 md:text-6xl text-3xl gap-10 text-detail-orange'>
                 
                 <a className='transition-transform duration-300 ease-in-out transform hover:scale-110 active:opacity-75 cursor-pointer' href='https://www.facebook.com' target="_blank" rel="noopener noreferrer">
                     <FaFacebookSquare />
@@ -68,7 +68,7 @@ export default function AboutUs (){
                     <ImMail />
                 </a>                                
 
-            </div>           
+            </div>            */}
         </div>  
         </section>
     )

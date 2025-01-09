@@ -19,16 +19,18 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ title, tag1, tag2, tag3, arti
     //Link redirecionando para o artigo em questão
     <Link href={articleUrl} passHref target="_blank">
       <div
-        className="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer bg-primary-white hover:shadow-2xl transition-shadow duration-300"
+        className="max-w-sm rounded-md overflow-hidden shadow-lg cursor-pointer bg-primary-white hover:shadow-2xl transition-shadow duration-300"
       >
        {/* Imagem padrão dos cards */}
-        <img className="w-full" 
-          src={"https://img.freepik.com/free-vector/magnifying-glass-with-file-searching_52683-22967.jpg?t=st=1730562921~exp=1730566521~hmac=5e62dfc790c887dd9dfd934a2a9b5be3976c7cae88f6a19999b143556ab95ff7&w=740"} 
-          alt={'https://support.freepik.com/s/?language=en_US'} 
+       <div className='bg-black'>
+        <img className="w-full rounded-t-sm" 
+          src={"https://i.imgur.com/yQrb8zK.jpeg"} 
+          alt={'www.freepik.com'} 
           />
+        </div>
         {/* Nome do artigo */}
         <div className="px-6 py-4 ">
-          <div className="font-bold text-lg mb-2 text-primary-blue h-[9vh] max-h-16 text-left">{title}</div>
+          <div className="font-bold text-base mb-2 text-primary-blue h-[9vh] max-h-16 text-left">{title}</div>
         </div>
         
         {/* Tags do artigo */}
