@@ -37,16 +37,18 @@ const Research = () => {
                     Status: item.Status || ""
                 }));
                 setResearchData(formattedData);
-
+    
                 // Extrair anos únicos para a lista de seleção
                 const uniqueYears = Array.from(new Set(formattedData.map(item => item.Ano))).filter(year => year);
                 uniqueYears.sort();
+    
+                // Calcular o ano do meio
+                const middleIndex = Math.floor(uniqueYears.length / 2);
+                const middleYear = uniqueYears[middleIndex];
+    
+                // Definir o ano central como selecionado
                 setYears(uniqueYears);
-
-                // Define o primeiro ano como selecionado
-                if (uniqueYears.length > 0) {
-                    setSelectedYear(uniqueYears[0]);
-                }
+                setSelectedYear(middleYear); // Ano do meio como o inicial
                 setLoading(false); // Define o carregamento como falso após os dados serem carregados
             })
             .catch((err) => {
@@ -54,6 +56,23 @@ const Research = () => {
                 setLoading(false); // Também define o carregamento como falso em caso de erro
             });
     }, []);
+    
+
+    // Filtra os anos para mostrar o selecionado e os dois à esquerda e dois à direita
+    const getYearsToShow = (years: string[], selectedYear: string | null) => {
+        if (!selectedYear || years.length === 0) return [];
+
+        const selectedIndex = years.indexOf(selectedYear);
+
+        // Determina os anos a serem exibidos
+        const startIndex = Math.max(0, selectedIndex - 2); // Começa dois anos antes
+        const endIndex = Math.min(years.length, selectedIndex + 3); // Exibe dois anos depois, incluindo o selecionado
+
+        return years.slice(startIndex, endIndex);
+    };
+
+    // Anos que serão exibidos
+    const yearsToShow = getYearsToShow(years, selectedYear);
 
     // Dados filtrados por ano
     const filteredData = selectedYear
@@ -71,7 +90,8 @@ const Research = () => {
             </div>
             <div>
                  {/* Navegação por ano */}
-                <SelectableList items={years} onSelect={setSelectedYear} />
+                 <SelectableList items={yearsToShow} onSelect={setSelectedYear} />
+
             </div>
              {/* Accordion com as pesquisas */}
             <div className="w-full">
