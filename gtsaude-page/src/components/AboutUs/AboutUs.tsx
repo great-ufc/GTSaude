@@ -29,7 +29,7 @@ export default function AboutUs (){
                     <div className='flex-col md:w-[50%] w-[80%] text-p-white text-justify h-30 relative'>  
                         
                         <h1 className='text-lg md:text-2xl pb-8 text-right relative'>Como a GT Saúde surgiu?
-                            <div className='absolute bg-orange-500 md:h-2 h-1 md:right-[-25vw] right-[-20vw] md:w-[80vh] w-[20vh] bottom-[0px] rounded-l-xl mb-4 '>
+                            <div className='md:absolute hidden bg-orange-500 md:h-2 h-1 md:right-[-25vw] right-[-20vw] md:w-[80vh] w-[20vh] bottom-[0px] rounded-l-xl mb-4 '>
                                 <h1 className='text-transparent'> . </h1>
                             </div>    
                         </h1> 
@@ -45,7 +45,7 @@ export default function AboutUs (){
                     
                     {/* Qual o nosso objetivo? */}
                     <h1 className='text-lg md:text-2xl pb-8 text-left relative'>Qual o nosso objetivo?
-                            <div className='absolute bg-orange-500 md:h-2 h-1 md:left-[-25vw] left-[-50vw] md:w-[80vh] w-[40vh] bottom-[0px] rounded-r-xl mb-4 '>
+                            <div className='md:absolute hidden bg-orange-500 md:h-2 h-1 md:left-[-25vw] left-[-50vw] md:w-[80vh] w-[40vh] bottom-[0px] rounded-r-xl mb-4 '>
                                 <h1 className='text-transparent'> . </h1>
                             </div>    
                         </h1> 
