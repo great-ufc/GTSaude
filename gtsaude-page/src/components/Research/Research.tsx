@@ -86,7 +86,7 @@ const Research = () => {
                 {/* Título da Sessão */}
                 <h1 className="text-xl md:text-4xl text-primary-white text-center font-semibold">Projetos em Andamento</h1>
                 {/* Descrição da Sessão */}
-                <p className="text-base md:text-xl text-primary-white text-justify">Esta seção oferece aos visitantes uma oportunidade de acompanhar os avanços mais recentes e inovadores em diversas áreas do conhecimento...</p>
+                <p className="text-base md:text-xl px-6 md:px-0 text-primary-white text-justify">Esta seção oferece aos visitantes uma oportunidade de acompanhar os avanços mais recentes e inovadores em diversas áreas do conhecimento...</p>
             </div>
             <div>
                  {/* Navegação por ano */}

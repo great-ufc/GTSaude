@@ -1,12 +1,10 @@
 import Logo_Extd from '@/assets/Logo_extendida.svg'
-// import { FaFacebookSquare, FaInstagramSquare, FaLinkedin} from "react-icons/fa";
-// import { ImMail } from "react-icons/im";
 
 import Image from 'next/image'
 
 export default function AboutUs (){
     return(
-        <section className="w-full md:h-[50vh] h-[32vh] max-h-[1200px] bg-primary-blue relative " id='AboutUs'>      
+        <section className="w-full md:h-[50vh] h-[32vh] max-h-[1200px] bg-primary-blue relative " id='Contacts'>      
         
         <div className="h-full flex flex-col items-center justify-center max-w-[1246px] mx-auto my-auto py-10 ">
 
@@ -34,7 +32,7 @@ export default function AboutUs (){
 
                     <ul className='text-xs md:text-lg md:text-left text-center pt-4'>
                         <li className='font-bold py-2'>
-                            Contato GREAT:
+                            Acesse o GREAT:
                         </li>
                         
                         <li>

@@ -1,5 +1,5 @@
 import Header from "../components/Header/Header";
-import HeroSection from "../components/HeroSection/HeroSection";
+import HeroSection2 from "../components/HeroSection/HeroSection2";
 import AboutUs from "../components/AboutUs/AboutUs";
 import Members from "../components/Members/Members";
 import Research from "../components/Research/Research";
@@ -9,7 +9,7 @@ import Footer from "../components/Footer/Footer";
 export default function Home() {
   return (
     <div>
-      <HeroSection />
+      <HeroSection2 />
       <AboutUs />
       <Members />
       <Research />

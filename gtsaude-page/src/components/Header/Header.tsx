@@ -34,7 +34,7 @@ export default function Header() {
 
                     <li>    <ItemMenu name='Pesquisa' anchorId='Research' />    </li>
                     <li>    <ItemMenu name='Artigos' anchorId='Articles' />     </li>
-                    <li>    <ItemMenu name='Base de Dados' anchorId='' />       </li>
+                    <li>    <ItemMenu name='Contatos' anchorId='Contacts' />       </li>
                 
                 </ul>
                 
@@ -70,7 +70,7 @@ export default function Header() {
                         <li className='p-4'>    <ItemMenu name='Membros' anchorId='Members' />      </li>
                         <li className='p-4'>    <ItemMenu name='Pesquisa' anchorId='Research' />    </li>
                         <li className='p-4'>    <ItemMenu name='Artigos' anchorId='Articles' />     </li>
-                        <li className='p-4'>    <ItemMenu name='Base de Dados' anchorId='' />       </li>
+                        <li className='p-4'>    <ItemMenu name='Contatos' anchorId='Contacts' />       </li>
                     </ul>
                 </div>
 

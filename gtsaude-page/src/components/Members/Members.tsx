@@ -9,7 +9,7 @@ const Members = () => {
                 {/* Título da Sessão */}
                 <h1 className="text-xl md:text-4xl text-primary-blue text-center font-semibold">Membros</h1>
                 {/* Descrição da Sessão */}
-                <p className="text-base md:text-xl text-primary-blue text-center"> Atualmente integram o GT Saúde professores e alunos de Pós-Graduação de Graduação da UFC e de outras universidades.
+                <p className="text-base md:text-xl px-6 md:px-0 text-primary-blue text-center"> Atualmente integram o GT Saúde professores e alunos de Pós-Graduação de Graduação da UFC e de outras universidades.
                 </p>
             </div>
 

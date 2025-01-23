@@ -55,7 +55,7 @@ const SelectableList: React.FC<SelectableListProps> = ({ items, onSelect }) => {
     <div className="relative flex items-center justify-center w-screen">
       <button
         onClick={scrollLeftHandler}
-        className="absolute left-0  text-white px-4 py-2 rounded-l-lg"
+        className="md:absolute md:flex hidden left-0  text-white px-4 py-2 rounded-l-lg"
       >
         &larr;
       </button>
@@ -83,7 +83,7 @@ const SelectableList: React.FC<SelectableListProps> = ({ items, onSelect }) => {
       </div>
       <button
         onClick={scrollRightHandler}
-        className="absolute right-0 text-white px-4 py-2 rounded-r-lg"
+        className="md:absolute md:flex hidden right-0 text-white px-4 py-2 rounded-r-lg"
       >
         &rarr;
       </button>

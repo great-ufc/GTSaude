@@ -15,7 +15,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ title, tag1, tag2, tag3, arti
     // Link redirecionando para o artigo
     <Link href={articleUrl} passHref target="_blank">
       <div
-        className="max-w-xs sm:max-w-sm md:max-w-md rounded-md overflow-hidden shadow-lg cursor-pointer bg-primary-white hover:shadow-2xl transition-shadow duration-300"
+        className="mx-auto items-center max-w-xs sm:max-w-sm md:max-w-md rounded-md overflow-hidden shadow-lg cursor-pointer bg-primary-white hover:shadow-2xl transition-shadow duration-300"
       >
         {/* Imagem do card */}
         <div className="bg-black">

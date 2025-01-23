@@ -21,8 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children} {/* O conteúdo da página vem após o Header */}
+        <Header/>
+        <div className="pt-24">{children}</div> {/* Espaço abaixo do header */}
+
+       
       </body>
     </html>
   );
