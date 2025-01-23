@@ -1,71 +1,58 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import Papa from "papaparse";
+import React, { useState } from 'react';
+import Image from 'next/image'
+import HeroBanner2 from '../../assets/HeroBanner2.svg'
+import HeroBanner1 from '../../assets/HeroBanner.svg'
 
-const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhKX1VJ83ns6ujBStRVJvLSqallRt2jK9vsfXICRZOJMQxNzIvb4EA3rOG9kGpkhAh8GPogIuVUNj3/pub?gid=191788225&single=true&output=csv";
+const HeroSection = () => {
 
-interface Images {
-  Id?: string;
-  Evento?: string;
-  Link?: string;
-}
+    const heroBanners = [HeroBanner1, HeroBanner2];
 
-const HeroSection:  React.FC = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [imagesData, setImagesData] = useState<Images[]>([]);
+    const [direction, setDirection] = useState('next'); 
 
- 
+    // Função para avançar
+    const nextImage = () => {
+        setDirection('next');
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % heroBanners.length);
+    };
 
- // Fetch data
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.text())
-      .then((data) => {
-        const parsedData = Papa.parse<Images>(data, { header: true });
-        console.log("Parsed Data:", parsedData.data); // Verifique os dados aqui
-
-        setImagesData(parsedData.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    // Função para voltar
+    const prevImage = () => {
+        setDirection('prev');
+        setCurrentIndex((prevIndex) => 
+            (prevIndex - 1 + heroBanners.length) % heroBanners.length
+        );
+    };
 
 
-  const handleNext = (): void => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % imagesData.length);
-  };
+    return (
+        <div className="relative overflow-hidden items-center mx-auto md:w-fit h-full max-h-[80vh] bg-white">
+            <div
+                className={`flex transition-transform duration-700 ease-in-out ${
+                    direction === 'next' ? '-translate-x-full' : 'translate-x-full'
+                }`}
+                style={{
+                    transform: `translateX(-${currentIndex * 100}%)`,
+                }}
+            >
+                {heroBanners.map((banner, index) => (
+                    <div key={index} className="min-w-full h-full">
+                        <Image
+                            className="md:w-full h-full object-cover"
+                            src={banner}
+                            alt={`Hero banner ${index + 1}`}
+                        />
+                    </div>
+                ))}
+            </div>
 
-  const handlePrev = (): void => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? imagesData.length - 1 : prevIndex - 1
-    );
-  };
-
-  return (
-    <div className="relative" id="HeroSection">
-      <div className="relative w-full overflow-hidden">
-        {imagesData.length === 0 ? (
-          <p>Loading images...</p>
-        ) : (
-          imagesData.map((src, index) => (
-            <img
-              key={index}
-              src={src.Link}
-              className={`block bg-cover w-full transition-transform duration-500 ease-in-out ${
-                index === activeIndex ? "block" : "hidden"
-              }`}
-              alt={`Slide ${index + 1}`}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          ))
-        )}
-      </div>
-
-      <button
+            <button
         className="md:flex  hidden bottom-0 -left-10 top-0 z-[1] md:absolute w-[15%] items-center justify-center text-white opacity-100"
-        onClick={handlePrev}
-        disabled={imagesData.length === 0}
+        onClick={prevImage}
+        
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -85,8 +72,8 @@ const HeroSection:  React.FC = () => {
 
       <button
         className="md:flex md:absolute hidden bottom-0 -right-10 top-0 z-[1]  w-[15%] items-center justify-center text-white opacity-100"
-        onClick={handleNext}
-        disabled={imagesData.length === 0}
+        onClick={nextImage}
+        
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -103,8 +90,8 @@ const HeroSection:  React.FC = () => {
           />
         </svg>
       </button>
-    </div>
-  );
-}
+        </div>
+    );
+};
 
 export default HeroSection;
