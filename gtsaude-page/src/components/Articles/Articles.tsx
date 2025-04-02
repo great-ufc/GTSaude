@@ -19,7 +19,7 @@ const Articles = () => {
   const [articlesData, setArticlesData] = useState<ArticlesColluns[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true); // Adicionado estado
-  const articlesPerPage = 3;
+  const articlesPerPage = 4;
 
   // Fetch Data
   useEffect(() => {
@@ -97,7 +97,7 @@ const Articles = () => {
       <div className="container mx-auto p-4">
         {/* Skeleton Loader */}
         {loading ? (
-          <div className="grid mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 animate-pulse">
+          <div className="grid mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 animate-pulse">
             {Array.from({ length: articlesPerPage }).map((_, index) => (
               <div
                 key={index}
@@ -111,7 +111,7 @@ const Articles = () => {
             ))}
           </div>
         ) : (
-          <div className="grid mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-4 ">
             {currentArticles.map((article, index) => (
               <ArticleCard
                 key={index}
@@ -126,7 +126,7 @@ const Articles = () => {
         )}
 
         {/* Navegação de páginas */}
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-8">
           {getPageNumbers().map((page, index) => (
             <button
               key={index}

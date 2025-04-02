@@ -8,7 +8,7 @@ type TagProps = {
 const Tag: React.FC<TagProps> = ({ name, color }) => {
   return (
     <span
-      className={`inline-block rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2`}
+      className={`inline-block rounded-full px-3 py-1 text-xs font-normal  text-white mr-2 mb-2`}
       style={{ backgroundColor: color }}
     >
       #{name}

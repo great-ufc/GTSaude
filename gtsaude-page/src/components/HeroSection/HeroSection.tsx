@@ -4,10 +4,12 @@ import React, { useState } from 'react';
 import Image from 'next/image'
 import HeroBanner2 from '../../assets/HeroBanner2.svg'
 import HeroBanner1 from '../../assets/HeroBanner.svg'
+import SBCAS from "../../assets/SBCAS2025.png"
+import GREAT from "../../assets/GREAT.png"
 
 const HeroSection = () => {
 
-    const heroBanners = [HeroBanner1, HeroBanner2];
+    const heroBanners = [HeroBanner1, SBCAS,GREAT];
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
